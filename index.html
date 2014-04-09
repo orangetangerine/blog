@@ -1,11 +1,12 @@
 ---
 layout: default
+title: 一只吉
 ---
-<p>Hello Orange!</p>
-<p>This is the index page</p>
-<p>Here is post list:</p>
-<ul>
- {% for post in site.posts %}
-  <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
- {% endfor %}
-</ul>
+<div id="main">
+	<h1>文章列表</h1>
+	<ul class="posts">
+	 {% for post in site.posts %}
+	  <li><span>{{ post.date | data_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+	 {% endfor %}
+	</ul>
+</div>
