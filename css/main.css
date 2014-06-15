@@ -55,7 +55,7 @@ a:visited { color: #a0a; }
 /*
 /*****************************************************************************/
 
-.site {
+#body {
   font-size: 115%;
   text-align: justify;
   width: 42em;
@@ -71,6 +71,7 @@ a:visited { color: #a0a; }
 .title {
   display: inline-block;
   margin-bottom: 2em;
+  color: #a00;
 }
 
 .title a {
@@ -157,4 +158,17 @@ a:visited { color: #a0a; }
 
 .post pre.terminal code {
   background-color: #333;
+}
+
+section.content img{
+  width: 70%;
+  margin-left: 2em;
+}
+
+section.content p{
+  text-indent: 2em;
+}
+
+section.content p.notes{
+  color: #B5B5B5;
 }

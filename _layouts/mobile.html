@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+
+    <!-- syntax highlighting CSS -->
+    <!--<link rel="stylesheet" href="/css/syntax.css">-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+
+    <script type="text/javascript">
+    	var ClientType = {
+    		Mobile:0,iPad:1,Other:2,Default:3
+    	};
+    	var type;
+		// 判断是否为移动端运行环境
+		// wukong.name 20130716
+		if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+				try{
+					if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+						// 判断访问环境是 Android|webOS|iPhone|iPod|BlackBerry 则加载以下样式
+						setActiveStyleSheet("mobile.css");
+						type=ClientType.Mobile;
+					}
+					else if(/iPad/i.test(navigator.userAgent)){
+						// 判断访问环境是 iPad 则加载以下样式
+						// setActiveStyleSheet("");
+						// type=ClientType.iPad;
+						setActiveStyleSheet("mobile.css");
+						type=ClientType.Mobile;
+					}
+					else{
+						// 判断访问环境是 其他移动设备 则加载以下样式
+						setActiveStyleSheet("mobile.css");
+						// type=ClientType.Other;
+						type=ClientType.Mobile;
+					}
+				}
+				catch(e){}
+		}
+		else{
+			// 如果以上都不是，则加载以下样式
+			// setActiveStyleSheet("style_mobile_no.css");
+			// type=ClientType.Default;
+			// setActiveStyleSheet("default.css");
+			type=ClientType.Default;
+		}
+		// 判断完毕后加载样式
+		function setActiveStyleSheet(filename){document.write("<link href={{ site.baseurl }}/css/"+filename+" rel=stylesheet>");}
+
+		function onSlide(){
+			var checked = document.getElementById('slide-toggle').checked;
+			if(checked){
+				document.getElementById('slide-toggle').checked=false;
+			}else{
+				document.getElementById('slide-toggle').checked=true;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<script>
+		// document.addEventListener("keydown",MyBack,false);
+		// function MyBack(e){
+		// 	alert(type);
+		// }
+	</script>
+
+	<script type="text/javascript">
+		if(type == ClientType.Mobile)
+		{
+			document.write(
+			'<input type="checkbox" id="slide-toggle">'
+			+'<aside id="slide-content">'
+				+'<label id="slide-control" for="#slide-toggle" onmouseup="onSlide();"'
+				+'style="position:absolute;top:10px;right:-20%;">=</label>'
+				+'<h1>文章列表</h1>'
+				+'<a href="{{site.baseurl}}/index.html"><button><h2>首页</h2></button></a>'
+				+'<dl>'
+					+'{% for post in site.posts %}'
+					+'<dt>'
+						+'<span><a href="{{site.baseurl}}{{post.url}}"><button>'
+							+'{{post.date | date: "%Y-%m-%d" }}&nbsp;&raquo;{{post.title}}'
+						+'</button></a></span>'
+					+'</dt>'
+					+'{% endfor %}'
+				+'</dl>'
+				+'<a id="ico-home" href="{{site.baseurl}}/index.html"><div id="home"><div id="home-tri-angle"></div><div id="home-rect"></div></div></a>'
+			+'</aside>'
+			);
+		}else if(type == ClientType.Default){
+
+		}
+	</script>
+
+	<section class="body" id="body">
+
+		<section class="header">
+			<h1 class="title">{{page.title}}</h1>
+			<a class="extra" href="{{site.baseurl}}/index.html">home</a>
+		</section>
+
+		<section class="content">
+			{{content}}
+		</section>
+
+		<section class="footer">
+			<h1>Orange</h1>
+			<h1>{{ page.date | date_to_string }}</h1>
+		</section>
+
+	</section>
+</body>
+</html>

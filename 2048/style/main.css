@@ -368,8 +368,7 @@ hr {
     background: #f67c5f; }
   .tile.tile-64 .tile-inner {
     color: #f9f6f2;
-    /*background: #f65e3b;*/ 
-    background-image: url(../miao.png);
+    background: #f65e3b;
   }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
