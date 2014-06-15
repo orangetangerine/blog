@@ -179,3 +179,19 @@ section.content p{
 section.content p.notes{
   color: #B5B5B5;
 }
+
+section.content span.red{
+  color: #f00;
+}
+
+section.context span.underline{
+  text-decoration: underline;
+}
+
+section.content span.line-through{
+  text-decoration: line-through;
+}
+
+section.content span.blue{
+  color: #00F;
+}
