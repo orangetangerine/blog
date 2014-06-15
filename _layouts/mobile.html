@@ -44,10 +44,8 @@
 		}
 		else{
 			// 如果以上都不是，则加载以下样式
-			// setActiveStyleSheet("style_mobile_no.css");
-			// type=ClientType.Default;
-			setActiveStyleSheet("mobile.css");
-			type=ClientType.Mobile;
+			// setActiveStyleSheet("default.css");
+			type=ClientType.Default;
 		}
 		// 判断完毕后加载样式
 		function setActiveStyleSheet(filename){document.write("<link href={{ site.baseurl }}/css/"+filename+" rel=stylesheet>");}
