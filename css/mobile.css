@@ -76,7 +76,6 @@ body{
 	margin-left: 1em;
 	padding: 10px;
 	width: 42em;
-	max-width: 90%;
 	transition:0.25s ease-out;
 	-webkit-transition:0.25s ease-out;
 }
